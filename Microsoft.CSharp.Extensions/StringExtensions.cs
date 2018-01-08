@@ -26,7 +26,7 @@ namespace Microsoft.CSharp.Extensions
         }
 
         /// <summary>
-        /// Get the word count from am input string
+        /// Get the word count from an input string
         /// </summary>
         /// <param name="input">input string parameter from which words needs to be counted</param>
         /// <returns>integer value indicating number of words</returns>
@@ -36,6 +36,28 @@ namespace Microsoft.CSharp.Extensions
                 return 0;
 
             return Regex.Split(input, @"\W+").Length;
+        }
+
+        /// <summary>
+        /// Find if all the characters from given input string are in upper case or not
+        /// </summary>
+        /// <param name="input">input string whose individual characters needs to be checked</param>
+        /// <returns>Boolen result (true / false) indicating whether all the characters are in upper case or not</returns>
+        public static bool IsAllUpper(this string input)
+        {
+            char[] chars = input.ToCharArray();
+            return chars.All(c => (char.IsUpper(c) || char.IsWhiteSpace(c)));
+        }
+
+        /// <summary>
+        /// Find if all the characters from given input string are in lower case or not
+        /// </summary>
+        /// <param name="input">input string whose individual characters needs to be checked</param>
+        /// <returns>Boolen result (true / false) indicating whether all the characters are in lower case or not</returns>
+        public static bool IsAllLower(this string input)
+        {
+            char[] chars = input.ToCharArray();
+            return chars.All(c => (char.IsLower(c) || char.IsWhiteSpace(c)));
         }
     }
 }
