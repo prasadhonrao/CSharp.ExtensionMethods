@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Microsoft.CSharp.Extensions.Tests
 {
@@ -36,7 +35,7 @@ namespace Microsoft.CSharp.Extensions.Tests
         }
         #endregion
 
-        #region GetWordCount
+        #region GetWordCount()
         [TestMethod]
         public void GetWordCount_With_String_Input_Test()
         {
@@ -66,7 +65,7 @@ namespace Microsoft.CSharp.Extensions.Tests
         }
         #endregion
 
-        #region IsAllUpper
+        #region IsAllUpper()
 
         [TestMethod]
         public void IsAllUpper_UpperCase_String_Input_Test()
@@ -98,7 +97,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region IsAllLower
+        #region IsAllLower()
 
         [TestMethod]
         public void IsAllLower_LowerCase_String_Input_Test()
@@ -130,7 +129,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region ToTitleCase
+        #region ToTitleCase()
 
         [TestMethod]
         public void ToTitleCase_Lower_Case_Input_Test()
