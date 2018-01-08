@@ -59,5 +59,21 @@ namespace Microsoft.CSharp.Extensions
             char[] chars = input.ToCharArray();
             return chars.All(c => (char.IsLower(c) || char.IsWhiteSpace(c)));
         }
+
+        /// <summary>
+        /// Convert the first letter of the input string to Title case / Upper case
+        /// </summary>
+        /// <param name="input">input string parameter</param>
+        /// <returns>String with first letter in title case</returns>
+        public static string ToTitleCase(this string input)
+        {
+            if (input.Length > 0)
+            {
+                char[] array = input.ToCharArray();
+                array[0] = char.ToUpper(array[0]);
+                return new string(array);
+            }
+            return input;
+        }
     }
 }

@@ -129,5 +129,44 @@ namespace Microsoft.CSharp.Extensions.Tests
         }
 
         #endregion
+
+        #region ToTitleCase
+
+        [TestMethod]
+        public void ToTitleCase_Lower_Case_Input_Test()
+        {
+            var result = "twinkle twinkle litte star".ToTitleCase();
+            Assert.AreEqual("Twinkle twinkle litte star", result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Upper_Case_Input_Test()
+        {
+            var result = "Twinkle Twinkle Litte Star".ToTitleCase();
+            Assert.AreEqual("Twinkle Twinkle Litte Star", result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Empty_String_Input_Test()
+        {
+            var result = string.Empty.ToTitleCase();
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Integer_Input_Test()
+        {
+            var result = "1234567890".ToTitleCase();
+            Assert.AreEqual("1234567890", result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Special_Symbol_Input_Test()
+        {
+            var result = "!@#$%^&*()".ToTitleCase();
+            Assert.AreEqual("!@#$%^&*()", result);
+        }
+
+        #endregion
     }
 }
