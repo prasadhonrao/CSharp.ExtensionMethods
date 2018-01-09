@@ -6,6 +6,55 @@ namespace Microsoft.CSharp.Extensions
 {
     public static class StringExtensions
     {
+        #region GetWordCount()
+
+        /// <summary>
+        /// Get the word count from an input string
+        /// </summary>
+        /// <param name="input">input string parameter from which words needs to be counted</param>
+        /// <returns>integer value indicating number of words</returns>
+        public static int GetWordCount(this string input)
+        {
+            if (input.Trim().Length == 0)
+                return 0;
+
+            return Regex.Split(input, @"\W+").Length;
+        }
+
+        #endregion
+
+        #region IsAllLower()
+
+        /// <summary>
+        /// Find if all the characters from given input string are in lower case or not
+        /// </summary>
+        /// <param name="input">input string whose individual characters needs to be checked</param>
+        /// <returns>Boolen result (true / false) indicating whether all the characters are in lower case or not</returns>
+        public static bool IsAllLower(this string input)
+        {
+            char[] chars = input.ToCharArray();
+            return chars.All(c => (char.IsLower(c) || char.IsWhiteSpace(c)));
+        }
+
+        #endregion
+
+        #region IsAllUpper()
+
+        /// <summary>
+        /// Find if all the characters from given input string are in upper case or not
+        /// </summary>
+        /// <param name="input">input string whose individual characters needs to be checked</param>
+        /// <returns>Boolen result (true / false) indicating whether all the characters are in upper case or not</returns>
+        public static bool IsAllUpper(this string input)
+        {
+            char[] chars = input.ToCharArray();
+            return chars.All(c => (char.IsUpper(c) || char.IsWhiteSpace(c)));
+        }
+
+        #endregion
+
+        #region ToInt()
+
         /// <summary>
         /// Convert an input string to integer
         /// Usage: var count = strCount.ToInt();
@@ -22,40 +71,27 @@ namespace Microsoft.CSharp.Extensions
             return result;
         }
 
-        /// <summary>
-        /// Get the word count from an input string
-        /// </summary>
-        /// <param name="input">input string parameter from which words needs to be counted</param>
-        /// <returns>integer value indicating number of words</returns>
-        public static int GetWordCount(this string input)
-        {
-            if (input.Trim().Length == 0)
-                return 0;
+        #endregion
 
-            return Regex.Split(input, @"\W+").Length;
-        }
+        #region ToReverseCase()
 
         /// <summary>
-        /// Find if all the characters from given input string are in upper case or not
+        /// Reverse case of all alphabetic character in a given input string
         /// </summary>
-        /// <param name="input">input string whose individual characters needs to be checked</param>
-        /// <returns>Boolen result (true / false) indicating whether all the characters are in upper case or not</returns>
-        public static bool IsAllUpper(this string input)
+        /// <param name="input">input string whose character case needs to be reversed</param>
+        /// <returns>string with reverse characters</returns>
+        public static string ToReverseCase(this string input)
         {
-            char[] chars = input.ToCharArray();
-            return chars.All(c => (char.IsUpper(c) || char.IsWhiteSpace(c)));
+            return new string(input.Select
+                                    (c => char.IsLetter(c) ? (char.IsUpper(c) ?
+                                          char.ToLower(c) : char.ToUpper(c)) : c)
+                                    .ToArray()
+                             );
         }
 
-        /// <summary>
-        /// Find if all the characters from given input string are in lower case or not
-        /// </summary>
-        /// <param name="input">input string whose individual characters needs to be checked</param>
-        /// <returns>Boolen result (true / false) indicating whether all the characters are in lower case or not</returns>
-        public static bool IsAllLower(this string input)
-        {
-            char[] chars = input.ToCharArray();
-            return chars.All(c => (char.IsLower(c) || char.IsWhiteSpace(c)));
-        }
+        #endregion
+
+        #region ToTitleCase()
 
         /// <summary>
         /// Convert the first letter of the input string to Title case / Upper case
@@ -73,18 +109,6 @@ namespace Microsoft.CSharp.Extensions
             return input;
         }
 
-        /// <summary>
-        /// Reverse case of all alphabetic character in a given input string
-        /// </summary>
-        /// <param name="input">input string whose character case needs to be reversed</param>
-        /// <returns>string with reverse characters</returns>
-        public static string ToReverseCase(this string input)
-        {
-            return new string(input.Select
-                                    (c => char.IsLetter(c) ? (char.IsUpper(c) ?
-                                          char.ToLower(c) : char.ToUpper(c)) : c)
-                                    .ToArray()
-                             );
-        }
+        #endregion
     }
 }
