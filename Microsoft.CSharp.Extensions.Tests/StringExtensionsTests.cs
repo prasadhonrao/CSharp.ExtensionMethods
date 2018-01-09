@@ -5,36 +5,6 @@ namespace Microsoft.CSharp.Extensions.Tests
     [TestClass]
     public class StringExtensionsTests
     {
-        #region ToInt()
-        [TestMethod]
-        public void ToInt_Valid_String_To_Int_Test()
-        {
-            var input = "100".ToInt();
-            Assert.IsTrue(input == 100);
-        }
-
-        [TestMethod]
-        public void ToInt_Invalid_String_To_Int_Test()
-        {
-            var input = "AAA".ToInt();
-            Assert.IsTrue(input == 0);
-        }
-
-        [TestMethod]
-        public void ToInt_Empty_String_To_Int_Test()
-        {
-            var input = string.Empty.ToInt();
-            Assert.IsTrue(input == 0);
-        }
-
-        [TestMethod]
-        public void ToInt_Special_Symbol_To_Int_Test()
-        {
-            var input = "!@#$%^".ToInt();
-            Assert.IsTrue(input == 0);
-        }
-        #endregion
-
         #region GetWordCount()
         [TestMethod]
         public void GetWordCount_With_String_Input_Test()
@@ -63,38 +33,6 @@ namespace Microsoft.CSharp.Extensions.Tests
             var result = "        ".GetWordCount();
             Assert.AreEqual(0, result);
         }
-        #endregion
-
-        #region IsAllUpper()
-
-        [TestMethod]
-        public void IsAllUpper_UpperCase_String_Input_Test()
-        {
-            var result = "TWINKLE TWINKLE LITTE STAR".IsAllUpper();
-            Assert.AreEqual(true, result);
-        }
-
-        [TestMethod]
-        public void IsAllUpper_MixedCase_String_Input_Test()
-        {
-            var result = "Twinkle Twinkle Litte Star".IsAllUpper();
-            Assert.AreEqual(false, result);
-        }
-
-        [TestMethod]
-        public void IsAllUpper_Integer_String_Input_Test()
-        {
-            var result = "1234567890".IsAllUpper();
-            Assert.AreEqual(false, result);
-        }
-
-        [TestMethod]
-        public void IsAllUpper_Special_Symbol_String_Input_Test()
-        {
-            var result = "!@#$%^&*()".IsAllUpper();
-            Assert.AreEqual(false, result);
-        }
-
         #endregion
 
         #region IsAllLower()
@@ -129,46 +67,69 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region ToTitleCase()
+        #region IsAllUpper()
 
         [TestMethod]
-        public void ToTitleCase_Lower_Case_Input_Test()
+        public void IsAllUpper_UpperCase_String_Input_Test()
         {
-            var result = "twinkle twinkle litte star".ToTitleCase();
-            Assert.AreEqual("Twinkle twinkle litte star", result);
+            var result = "TWINKLE TWINKLE LITTE STAR".IsAllUpper();
+            Assert.AreEqual(true, result);
         }
 
         [TestMethod]
-        public void ToTitleCase_Upper_Case_Input_Test()
+        public void IsAllUpper_MixedCase_String_Input_Test()
         {
-            var result = "Twinkle Twinkle Litte Star".ToTitleCase();
-            Assert.AreEqual("Twinkle Twinkle Litte Star", result);
+            var result = "Twinkle Twinkle Litte Star".IsAllUpper();
+            Assert.AreEqual(false, result);
         }
 
         [TestMethod]
-        public void ToTitleCase_Empty_String_Input_Test()
+        public void IsAllUpper_Integer_String_Input_Test()
         {
-            var result = string.Empty.ToTitleCase();
-            Assert.AreEqual(string.Empty, result);
+            var result = "1234567890".IsAllUpper();
+            Assert.AreEqual(false, result);
         }
 
         [TestMethod]
-        public void ToTitleCase_Integer_Input_Test()
+        public void IsAllUpper_Special_Symbol_String_Input_Test()
         {
-            var result = "1234567890".ToTitleCase();
-            Assert.AreEqual("1234567890", result);
-        }
-
-        [TestMethod]
-        public void ToTitleCase_Special_Symbol_Input_Test()
-        {
-            var result = "!@#$%^&*()".ToTitleCase();
-            Assert.AreEqual("!@#$%^&*()", result);
+            var result = "!@#$%^&*()".IsAllUpper();
+            Assert.AreEqual(false, result);
         }
 
         #endregion
 
-        #region ToReversCase()
+        #region ToInt()
+        [TestMethod]
+        public void ToInt_Valid_String_To_Int_Test()
+        {
+            var input = "100".ToInt();
+            Assert.IsTrue(input == 100);
+        }
+
+        [TestMethod]
+        public void ToInt_Invalid_String_To_Int_Test()
+        {
+            var input = "AAA".ToInt();
+            Assert.IsTrue(input == 0);
+        }
+
+        [TestMethod]
+        public void ToInt_Empty_String_To_Int_Test()
+        {
+            var input = string.Empty.ToInt();
+            Assert.IsTrue(input == 0);
+        }
+
+        [TestMethod]
+        public void ToInt_Special_Symbol_To_Int_Test()
+        {
+            var input = "!@#$%^".ToInt();
+            Assert.IsTrue(input == 0);
+        }
+        #endregion
+
+        #region ToReverseCase()
 
         [TestMethod]
         public void ToReverseCase_String_Input_Test()
@@ -210,6 +171,45 @@ namespace Microsoft.CSharp.Extensions.Tests
         {
             var result = "1234567890".ToReverseCase();
             Assert.AreEqual("1234567890", result);
+        }
+
+        #endregion
+     
+        #region ToTitleCase()
+
+        [TestMethod]
+        public void ToTitleCase_Lower_Case_Input_Test()
+        {
+            var result = "twinkle twinkle litte star".ToTitleCase();
+            Assert.AreEqual("Twinkle twinkle litte star", result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Upper_Case_Input_Test()
+        {
+            var result = "Twinkle Twinkle Litte Star".ToTitleCase();
+            Assert.AreEqual("Twinkle Twinkle Litte Star", result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Empty_String_Input_Test()
+        {
+            var result = string.Empty.ToTitleCase();
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Integer_Input_Test()
+        {
+            var result = "1234567890".ToTitleCase();
+            Assert.AreEqual("1234567890", result);
+        }
+
+        [TestMethod]
+        public void ToTitleCase_Special_Symbol_Input_Test()
+        {
+            var result = "!@#$%^&*()".ToTitleCase();
+            Assert.AreEqual("!@#$%^&*()", result);
         }
 
         #endregion
