@@ -167,5 +167,51 @@ namespace Microsoft.CSharp.Extensions.Tests
         }
 
         #endregion
+
+        #region ToReversCase()
+
+        [TestMethod]
+        public void ToReverseCase_String_Input_Test()
+        {
+            var result = "AaAaAa".ToReverseCase();
+            Assert.AreEqual("aAaAaA", result);
+        }
+
+        [TestMethod]
+        public void ToReverseCase_UpperCase_String_Input_Test()
+        {
+            var result = "AAAAA".ToReverseCase();
+            Assert.AreEqual("aaaaa", result);
+        }
+
+        [TestMethod]
+        public void ToReverseCase_LowerCase_String_Input_Test()
+        {
+            var result = "aaaaa".ToReverseCase();
+            Assert.AreEqual("AAAAA", result);
+        }
+
+        [TestMethod]
+        public void ToReverseCase_Empty_String_Input_Test()
+        {
+            var result = string.Empty.ToReverseCase();
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [TestMethod]
+        public void ToReverseCase_Alphanumeric_String_Input_Test()
+        {
+            var result = "pras@d".ToReverseCase();
+            Assert.AreEqual("PRAS@D", result);
+        }
+
+        [TestMethod]
+        public void ToReverseCase_Integer_String_Input_Test()
+        {
+            var result = "1234567890".ToReverseCase();
+            Assert.AreEqual("1234567890", result);
+        }
+
+        #endregion
     }
 }

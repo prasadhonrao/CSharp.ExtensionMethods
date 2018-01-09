@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Microsoft.CSharp.Extensions
 {
@@ -74,6 +71,20 @@ namespace Microsoft.CSharp.Extensions
                 return new string(array);
             }
             return input;
+        }
+
+        /// <summary>
+        /// Reverse case of all alphabetic character in a given input string
+        /// </summary>
+        /// <param name="input">input string whose character case needs to be reversed</param>
+        /// <returns>string with reverse characters</returns>
+        public static string ToReverseCase(this string input)
+        {
+            return new string(input.Select
+                                    (c => char.IsLetter(c) ? (char.IsUpper(c) ?
+                                          char.ToLower(c) : char.ToUpper(c)) : c)
+                                    .ToArray()
+                             );
         }
     }
 }
