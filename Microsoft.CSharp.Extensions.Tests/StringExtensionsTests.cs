@@ -5,6 +5,45 @@ namespace Microsoft.CSharp.Extensions.Tests
     [TestClass]
     public class StringExtensionsTests
     {
+        #region GetOccurrenceCount
+
+        [TestMethod]
+        public void Occurence_Valid_Occurence_Test()
+        {
+            var occurenceCount = "supercalifragilisticexpealidocious".GetOccurrenceCount("li");
+            Assert.AreEqual(3, occurenceCount);
+        }
+
+        [TestMethod]
+        public void Occurence_Invalid_Occurence_Test()
+        {
+            var occurenceCount = "prasad".GetOccurrenceCount("xxx");
+            Assert.AreEqual(0, occurenceCount);
+        }
+
+        [TestMethod]
+        public void Occurence_EmptyString_Search_Occurence_Test()
+        {
+            var occurenceCount = "xxx".GetOccurrenceCount(string.Empty);
+            Assert.AreEqual(0, occurenceCount);
+        }
+
+        [TestMethod]
+        public void Occurence_EmptyString_Input_Occurence_Test()
+        {
+            var occurenceCount = string.Empty.GetOccurrenceCount("Prasad");
+            Assert.AreEqual(0, occurenceCount);
+        }
+
+        [TestMethod]
+        public void Occurence_Empty_Input_Empty_Search_Occurence_Test()
+        {
+            var occurenceCount = string.Empty.GetOccurrenceCount(string.Empty);
+            Assert.AreEqual(1, occurenceCount);
+        }
+
+        #endregion
+
         #region GetWordCount()
         [TestMethod]
         public void GetWordCount_With_String_Input_Test()

@@ -6,6 +6,27 @@ namespace Microsoft.CSharp.Extensions
 {
     public static class StringExtensions
     {
+        #region GetOccurrenceCount
+
+        // Usage: var count = "supercalifragilisticexpealidocious".GetOccurrenceCount("li"); // returns 3
+        /// <summary>
+        /// Get the occurence count of a substring in a given input string
+        /// </summary>
+        /// <param name="input">input string parameter in which a occurence needs to be identified</param>
+        /// <param name="searchText">input search text</param>
+        /// <returns>integer value returning the number of occurences of a serachText in main input string</returns>
+        public static int GetOccurrenceCount(this string input, string searchText)
+        {
+            if (input.Trim() == string.Empty && searchText.Trim() == string.Empty)
+                return 1;
+            else if (input.Trim() == string.Empty || searchText.Trim() == string.Empty)
+                return 0;
+            else
+                return Regex.Matches(input, searchText).Count;
+        }
+
+        #endregion
+
         #region GetWordCount()
 
         /// <summary>
