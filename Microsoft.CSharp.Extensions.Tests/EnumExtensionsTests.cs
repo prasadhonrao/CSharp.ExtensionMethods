@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Microsoft.CSharp.Extensions.Tests
 {
@@ -62,6 +63,14 @@ namespace Microsoft.CSharp.Extensions.Tests
         public void Count_Non_Empty_Enum_Test()
         {
             var count = Enum<Duration>.Count;
+            Assert.IsTrue(5 == count);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Count_Invalid_Type_Test()
+        {
+            var count = Enum<DateTime>.Count;
             Assert.IsTrue(5 == count);
         }
 
