@@ -53,8 +53,30 @@ namespace Microsoft.CSharp.Extensions
         public static bool IsWeekend(this DateTime date)
         {
             return new[] { DayOfWeek.Sunday, DayOfWeek.Saturday }.Contains(date.DayOfWeek);
-        } 
-        
+        }
+
+        #endregion
+
+        #region NextBusinessDay
+
+        public static DateTime NextBusinessDay(this DateTime dateTime)
+        {
+            if (dateTime.DayOfWeek == DayOfWeek.Saturday)
+                return dateTime.AddDays(2);
+            return dateTime.AddDays(1);
+        }
+
+        #endregion
+
+        #region PreviousBusinessDay
+
+        public static DateTime PreviousBusinessDay(this DateTime dateTime)
+        {
+            if (dateTime.DayOfWeek == DayOfWeek.Sunday)
+                return dateTime.AddDays(-2);
+            return dateTime.AddDays(-1);
+        }
+
         #endregion
 
         #region Tomorrow

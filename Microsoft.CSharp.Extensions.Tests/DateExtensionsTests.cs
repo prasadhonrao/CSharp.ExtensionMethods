@@ -117,6 +117,62 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
+        #region NextBusinessDay
+
+        [TestMethod]
+        public void NextBusinessDay_Weekday_Test()
+        {
+            var day = new DateTime(2018, 01, 01).NextBusinessDay();
+            int result = DateTime.Compare(day, new DateTime(2018, 01, 02));
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void NextBusinessDay_Saturday_Test()
+        {
+            var day = new DateTime(2018, 01, 06).NextBusinessDay();
+            int result = DateTime.Compare(day, new DateTime(2018, 01, 08));
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void NextBusinessDay_Sunday_Test()
+        {
+            var day = new DateTime(2018, 01, 07).NextBusinessDay();
+            int result = DateTime.Compare(day, new DateTime(2018, 01, 08));
+            Assert.AreEqual(0, result);
+        }
+
+        #endregion
+
+        #region PreviousBusinessDay
+
+        [TestMethod]
+        public void PreviousBusinessDay_Weekday_Test()
+        {
+            var day = new DateTime(2018, 01, 02).PreviousBusinessDay();
+            int result = DateTime.Compare(day, new DateTime(2018, 01, 01));
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void PreviousBusinessDay_Saturday_Test()
+        {
+            var day = new DateTime(2018, 01, 06).PreviousBusinessDay();
+            int result = DateTime.Compare(day, new DateTime(2018, 01, 05));
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void PreviousBusinessDay_Sunday_Test()
+        {
+            var day = new DateTime(2018, 01, 07).PreviousBusinessDay();
+            int result = DateTime.Compare(day, new DateTime(2018, 01, 05));
+            Assert.AreEqual(0, result);
+        }
+
+        #endregion
+
         #region Tomorrow
 
         [TestMethod]
