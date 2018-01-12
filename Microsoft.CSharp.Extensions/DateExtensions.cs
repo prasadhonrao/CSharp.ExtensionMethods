@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Microsoft.CSharp.Extensions
 {
     public static class DateExtensions
     {
+        #region GetOrdinalSuffix
+
         /// <summary>
         /// Get the ordinal suffix for a given date
         /// </summary>
@@ -32,5 +30,25 @@ namespace Microsoft.CSharp.Extensions
                     return String.Concat(day, "th");
             }
         }
+
+        #endregion
+
+        #region Tomorrow
+
+        public static DateTime Tomorrow(this DateTime datetime)
+        {
+            return datetime.AddDays(1);
+        }
+
+        #endregion
+
+        #region Yesterday
+
+        public static DateTime Yesterday(this DateTime datetime)
+        {
+            return datetime.AddDays(-1);
+        }
+
+        #endregion
     }
 }
