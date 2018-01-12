@@ -39,6 +39,84 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
+        #region IsWeekday
+
+        [TestMethod]
+        public void IsWeekday_Monday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 01).IsWeekday();
+            Assert.IsTrue(isWeekday);
+        }
+
+        [TestMethod]
+        public void IsWeekday_Tuesday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 02).IsWeekday();
+            Assert.IsTrue(isWeekday);
+        }
+
+        [TestMethod]
+        public void IsWeekday_Wednesday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 03).IsWeekday();
+            Assert.IsTrue(isWeekday);
+        }
+
+        [TestMethod]
+        public void IsWeekday_Thrusday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 04).IsWeekday();
+            Assert.IsTrue(isWeekday);
+        }
+
+        [TestMethod]
+        public void IsWeekday_Friday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 05).IsWeekday();
+            Assert.IsTrue(isWeekday);
+        }
+
+        [TestMethod]
+        public void IsWeekday_Saturday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 06).IsWeekday();
+            Assert.IsFalse(isWeekday);
+        }
+
+        [TestMethod]
+        public void IsWeekday_Sunday_Test()
+        {
+            var isWeekday = new DateTime(2018, 01, 07).IsWeekday();
+            Assert.IsFalse(isWeekday);
+        }
+
+        #endregion
+
+        #region IsWeekend
+
+        [TestMethod]
+        public void IsWeekend_Saturday_Test()
+        {
+            var isWeekend = new DateTime(2018, 01, 06).IsWeekend();
+            Assert.IsTrue(isWeekend);
+        }
+
+        [TestMethod]
+        public void IsWeekend_Sunday_Test()
+        {
+            var isWeekend = new DateTime(2018, 01, 07).IsWeekend();
+            Assert.IsTrue(isWeekend);
+        }
+
+        [TestMethod]
+        public void IsWeekend_Monday_Test()
+        {
+            var isWeekend = new DateTime(2018, 01, 08).IsWeekend();
+            Assert.IsFalse(isWeekend);
+        }
+
+        #endregion
+
         #region Tomorrow
 
         [TestMethod]

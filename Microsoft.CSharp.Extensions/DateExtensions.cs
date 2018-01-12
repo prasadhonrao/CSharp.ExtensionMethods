@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Microsoft.CSharp.Extensions
 {
@@ -31,6 +32,29 @@ namespace Microsoft.CSharp.Extensions
             }
         }
 
+        #endregion
+
+        #region IsWeekday
+
+        public static bool IsWeekday(this DateTime date)
+        {
+            return new[] { DayOfWeek.Monday,
+                           DayOfWeek.Tuesday,
+                           DayOfWeek.Wednesday,
+                           DayOfWeek.Thursday,
+                           DayOfWeek.Friday
+                         }.Contains(date.DayOfWeek);
+        }
+
+        #endregion
+
+        #region IsWeekend
+
+        public static bool IsWeekend(this DateTime date)
+        {
+            return new[] { DayOfWeek.Sunday, DayOfWeek.Saturday }.Contains(date.DayOfWeek);
+        } 
+        
         #endregion
 
         #region Tomorrow
