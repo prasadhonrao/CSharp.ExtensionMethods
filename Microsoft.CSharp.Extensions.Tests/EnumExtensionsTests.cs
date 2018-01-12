@@ -48,5 +48,24 @@ namespace Microsoft.CSharp.Extensions.Tests
         }
 
         #endregion
+
+        #region Count
+
+        [TestMethod]
+        public void Count_Empty_Enum_Test()
+        {
+            var count = Enum<EmptyEnum>.Count;
+            Assert.IsTrue(0 == count);
+        }
+
+        [TestMethod]
+        public void Count_Non_Empty_Enum_Test()
+        {
+            var count = Enum<Duration>.Count;
+            Assert.IsTrue(5 == count);
+        }
+
+        #endregion
     }
+
 }
