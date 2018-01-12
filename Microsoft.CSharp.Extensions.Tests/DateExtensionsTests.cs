@@ -1,12 +1,51 @@
-﻿using System;
-using System.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Microsoft.CSharp.Extensions.Tests
 {
     [TestClass]
     public class DateExtensionsTests
     {
+        #region GetFirstDayOfWeek
+
+        [TestMethod]
+        public void GetFirstDayOfWeek_1st_Test()
+        {
+            var firstDay = new DateTime(2018, 01, 01).GetFirstDayOfWeek();
+            int result = DateTime.Compare(firstDay, new DateTime(2017, 12, 31));
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void GetFirstDayOfWeek_2nd_Test()
+        {
+            var firstDay = new DateTime(2018, 01, 31).GetFirstDayOfWeek();
+            int result = DateTime.Compare(firstDay, new DateTime(2018, 01, 28));
+            Assert.AreEqual(0, result);
+        }
+
+        #endregion
+
+        #region GetLastDayOfWeek
+
+        [TestMethod]
+        public void GetLastDayOfWeek_1st_Test()
+        {
+            var firstDay = new DateTime(2018, 01, 01).GetLastDayOfWeek();
+            int result = DateTime.Compare(firstDay, new DateTime(2018, 01, 06));
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void GetLastDayOfWeek_2nd_Test()
+        {
+            var firstDay = new DateTime(2018, 01, 31).GetLastDayOfWeek();
+            int result = DateTime.Compare(firstDay, new DateTime(2018, 02, 03));
+            Assert.AreEqual(0, result);
+        }
+
+        #endregion
+
         #region GetOrdinalSuffix
 
         [TestMethod]

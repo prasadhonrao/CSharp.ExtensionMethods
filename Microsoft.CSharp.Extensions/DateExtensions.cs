@@ -1,10 +1,51 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 
 namespace Microsoft.CSharp.Extensions
 {
     public static class DateExtensions
     {
+        #region GetFirstDayOfWeek
+
+        /// <summary>
+        /// Returns the first day of the week that the specified date is in using the current culture. 
+        /// </summary>
+        /// <param name="date">Input date parameter</param>
+        /// <returns>First day of a week of agiven input date</returns>
+        public static DateTime GetFirstDayOfWeek(this DateTime date)
+        {
+            CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+            DayOfWeek firstDay = cultureInfo.DateTimeFormat.FirstDayOfWeek;
+            DateTime firstDayInWeek = date.Date;
+            while (firstDayInWeek.DayOfWeek != firstDay)
+                firstDayInWeek = firstDayInWeek.AddDays(-1);
+
+            return firstDayInWeek;
+        }
+
+        #endregion
+
+        #region GetLastDayOfWeek
+
+        /// <summary>
+        /// Returns the last day of the week that the specified date is in using the current culture. 
+        /// </summary>
+        /// <param name="date">Input date parameter</param>
+        /// <returns>Last day of a week of agiven input date</returns>
+        public static DateTime GetLastDayOfWeek(this DateTime date)
+        {
+            CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+            DayOfWeek firstDay = cultureInfo.DateTimeFormat.FirstDayOfWeek;
+            DateTime firstDayInWeek = date.Date;
+            while (firstDayInWeek.DayOfWeek != firstDay)
+                firstDayInWeek = firstDayInWeek.AddDays(-1);
+
+            return firstDayInWeek.AddDays(6); 
+        }
+
+        #endregion
+
         #region GetOrdinalSuffix
 
         /// <summary>
