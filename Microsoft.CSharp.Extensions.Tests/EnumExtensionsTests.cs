@@ -1,14 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System;
 
 namespace Microsoft.CSharp.Extensions.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class EnumExtensionsTests
     {
         #region GetDescription
 
-        [TestMethod]
+        [Test]
         public void GetDescription_Week_Day_Value_Test()
         {
             Duration duration = Duration.Day;
@@ -16,7 +16,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.IsTrue("Eight hours" == description);
         }
 
-        [TestMethod]
+        [Test]
         public void GetDescription_Week_Enum_Value_Test()
         {
             Duration duration = Duration.Week;
@@ -24,7 +24,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.IsTrue("Five days" == description);
         }
 
-        [TestMethod]
+        [Test]
         public void GetDescription_Month_Enum_Value_Test()
         {
             Duration duration = Duration.Month;
@@ -32,7 +32,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.IsTrue("Twenty-one days" == description);
         }
 
-        [TestMethod]
+        [Test]
         public void GetDescription_Half_Year_Enum_Value_Test()
         {
             Duration duration = Duration.HalfYear;
@@ -40,7 +40,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.IsTrue(string.Empty == description);
         }
 
-        [TestMethod]
+        [Test]
         public void GetDescription_Year_Enum_Value_Test()
         {
             Duration duration = Duration.Year;
@@ -52,26 +52,25 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region Count
 
-        [TestMethod]
+        [Test]
         public void Count_Empty_Enum_Test()
         {
             var count = Enum<EmptyEnum>.Count;
             Assert.IsTrue(0 == count);
         }
 
-        [TestMethod]
+        [Test]
         public void Count_Non_Empty_Enum_Test()
         {
             var count = Enum<Duration>.Count;
             Assert.IsTrue(5 == count);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void Count_Invalid_Type_Test()
         {
-            var count = Enum<DateTime>.Count;
-            Assert.IsTrue(5 == count);
+            Assert.That(() => Enum<DateTime>.Count,
+               Throws.TypeOf<ArgumentException>());
         }
 
         #endregion

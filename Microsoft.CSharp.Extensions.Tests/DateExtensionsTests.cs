@@ -1,14 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System;
 
 namespace Microsoft.CSharp.Extensions.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class DateExtensionsTests
     {
         #region GetFirstDayOfWeek
 
-        [TestMethod]
+        [Test]
         public void GetFirstDayOfWeek_1st_Test()
         {
             var firstDay = new DateTime(2018, 01, 01).GetFirstDayOfWeek();
@@ -16,7 +16,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void GetFirstDayOfWeek_2nd_Test()
         {
             var firstDay = new DateTime(2018, 01, 31).GetFirstDayOfWeek();
@@ -28,7 +28,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region GetLastDayOfWeek
 
-        [TestMethod]
+        [Test]
         public void GetLastDayOfWeek_1st_Test()
         {
             var firstDay = new DateTime(2018, 01, 01).GetLastDayOfWeek();
@@ -36,7 +36,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void GetLastDayOfWeek_2nd_Test()
         {
             var firstDay = new DateTime(2018, 01, 31).GetLastDayOfWeek();
@@ -48,28 +48,28 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region GetOrdinalSuffix
 
-        [TestMethod]
+        [Test]
         public void GetOrdinalSuffix_1st_Test()
         {
             var input = new DateTime(2000, 01, 01).GetOrdinalSuffix();
             Assert.IsTrue(input == "1st");
         }
 
-        [TestMethod]
+        [Test]
         public void GetOrdinalSuffix_2nd_Test()
         {
             var input = new DateTime(2000, 01, 02).GetOrdinalSuffix();
             Assert.IsTrue(input == "2nd");
         }
 
-        [TestMethod]
+        [Test]
         public void GetOrdinalSuffix_3rd_Test()
         {
             var input = new DateTime(2000, 01, 03).GetOrdinalSuffix();
             Assert.IsTrue(input == "3rd");
         }
 
-        [TestMethod]
+        [Test]
         public void GetOrdinalSuffix_4th_Test()
         {
             var input = new DateTime(2000, 01, 04).GetOrdinalSuffix();
@@ -80,49 +80,49 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region IsWeekday
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Monday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 01).IsWeekday();
             Assert.IsTrue(isWeekday);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Tuesday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 02).IsWeekday();
             Assert.IsTrue(isWeekday);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Wednesday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 03).IsWeekday();
             Assert.IsTrue(isWeekday);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Thrusday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 04).IsWeekday();
             Assert.IsTrue(isWeekday);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Friday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 05).IsWeekday();
             Assert.IsTrue(isWeekday);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Saturday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 06).IsWeekday();
             Assert.IsFalse(isWeekday);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekday_Sunday_Test()
         {
             var isWeekday = new DateTime(2018, 01, 07).IsWeekday();
@@ -133,21 +133,21 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region IsWeekend
 
-        [TestMethod]
+        [Test]
         public void IsWeekend_Saturday_Test()
         {
             var isWeekend = new DateTime(2018, 01, 06).IsWeekend();
             Assert.IsTrue(isWeekend);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekend_Sunday_Test()
         {
             var isWeekend = new DateTime(2018, 01, 07).IsWeekend();
             Assert.IsTrue(isWeekend);
         }
 
-        [TestMethod]
+        [Test]
         public void IsWeekend_Monday_Test()
         {
             var isWeekend = new DateTime(2018, 01, 08).IsWeekend();
@@ -158,7 +158,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region NextBusinessDay
 
-        [TestMethod]
+        [Test]
         public void NextBusinessDay_Weekday_Test()
         {
             var day = new DateTime(2018, 01, 01).NextBusinessDay();
@@ -166,7 +166,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void NextBusinessDay_Saturday_Test()
         {
             var day = new DateTime(2018, 01, 06).NextBusinessDay();
@@ -174,7 +174,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void NextBusinessDay_Sunday_Test()
         {
             var day = new DateTime(2018, 01, 07).NextBusinessDay();
@@ -186,7 +186,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region PreviousBusinessDay
 
-        [TestMethod]
+        [Test]
         public void PreviousBusinessDay_Weekday_Test()
         {
             var day = new DateTime(2018, 01, 02).PreviousBusinessDay();
@@ -194,7 +194,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void PreviousBusinessDay_Saturday_Test()
         {
             var day = new DateTime(2018, 01, 06).PreviousBusinessDay();
@@ -202,7 +202,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void PreviousBusinessDay_Sunday_Test()
         {
             var day = new DateTime(2018, 01, 07).PreviousBusinessDay();
@@ -214,7 +214,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region Tomorrow
 
-        [TestMethod]
+        [Test]
         public void Tomorrow_Valid_Date_Test()
         {
             var output = new DateTime(2000, 01, 01).Tomorrow();
@@ -222,7 +222,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Tomorrow_Month_Start_Date_Test()
         {
             var output = new DateTime(2000, 01, 01).Tomorrow();
@@ -230,7 +230,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Tomorrow_Month_End_Date_Test()
         {
             var output = new DateTime(2000, 01, 31).Tomorrow();
@@ -238,7 +238,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Tomorrow_Year_Start_Date_Test()
         {
             var output = new DateTime(2000, 01, 01).Tomorrow();
@@ -246,7 +246,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Tomorrow_Year_End_Date_Test()
         {
             var output = new DateTime(2000, 12, 31).Tomorrow();
@@ -258,7 +258,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #region Yesterday
 
-        [TestMethod]
+        [Test]
         public void Yesterday_Valid_Date_Test()
         {
             var output = new DateTime(2000, 01, 02).Yesterday();
@@ -266,7 +266,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Yesterday_Month_Start_Date_Test()
         {
             var output = new DateTime(2000, 02, 01).Yesterday();
@@ -274,7 +274,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Yesterday_Month_End_Date_Test()
         {
             var output = new DateTime(2000, 01, 31).Yesterday();
@@ -282,7 +282,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Yesterday_Year_Start_Date_Test()
         {
             var output = new DateTime(2000, 01, 01).Yesterday();
@@ -290,7 +290,7 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.AreEqual(0, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Yesterday_Year_End_Date_Test()
         {
             var output = new DateTime(2000, 12, 31).Yesterday();
