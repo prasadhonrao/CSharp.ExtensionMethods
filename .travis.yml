@@ -1,8 +1,8 @@
 language: csharp
 solution: Microsoft.CSharp.Extensions.sln
 install:
-  - nuget restor Microsoft.CSharp.Extensions.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget restore Microsoft.CSharp.Extensions.sln
+  - nuget install NUnit.ConsoleRunner -Version 3.7.0 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Microsoft.CSharp.Extensions.Tests/bin/Release/Microsoft.CSharp.Extensions.Tests.dll
+  - nunit-console ./Microsoft.CSharp.Extensions.Tests/bin/Release/Microsoft.CSharp.Extensions.Tests.dll
