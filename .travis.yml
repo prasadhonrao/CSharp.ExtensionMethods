@@ -3,10 +3,11 @@ solution: Microsoft.CSharp.Extensions.sln
 
 before_install:
   - nuget install NUnit.Console -Version 3.7.0 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 
 before_script:
   - nuget restore Microsoft.CSharp.Extensions.sln
   
 script:
-  - xbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
-  - ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./Microsoft.CSharp.Extensions.Tests/bin/Release/Microsoft.CSharp.Extensions.Tests.dll
+  - msbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./Microsoft.CSharp.Extensions.Tests/bin/Release/Microsoft.CSharp.Extensions.Tests.dll
