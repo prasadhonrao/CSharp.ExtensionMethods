@@ -9,6 +9,4 @@ before_script:
   
 script:
   - xbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
-
-after_script:
   - ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./Microsoft.CSharp.Extensions.Tests/bin/Release/Microsoft.CSharp.Extensions.Tests.dll
