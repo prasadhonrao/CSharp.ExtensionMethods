@@ -27,7 +27,7 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region GetWordCount()
+        #region GetWordCount
 
         /// <summary>
         /// Get the word count from an input string
@@ -44,7 +44,7 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region IsAllLower()
+        #region IsAllLower
 
         /// <summary>
         /// Find if all the characters from given input string are in lower case or not
@@ -59,7 +59,7 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region IsAllUpper()
+        #region IsAllUpper
 
         /// <summary>
         /// Find if all the characters from given input string are in upper case or not
@@ -88,7 +88,7 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region ToInt()
+        #region ToInt
 
         /// <summary>
         /// Convert an input string to integer
@@ -108,7 +108,7 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region ToReverseCase()
+        #region ToReverseCase
 
         /// <summary>
         /// Reverse case of all alphabetic character in a given input string
@@ -126,7 +126,7 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region ToTitleCase()
+        #region ToTitleCase
 
         /// <summary>
         /// Convert the first letter of the input string to Title case / Upper case
