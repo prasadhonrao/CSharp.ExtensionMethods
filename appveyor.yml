@@ -1,8 +1,11 @@
 before_build:
- - nuget restore
+  - nuget install NUnit.Console -Version 3.7.0 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
+  - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
+  - nuget restore
 
 build_script:
- - msbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
+   - msbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
  
 test_script:
  .\tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:".\testrunner\NUnit.ConsoleRunner.3.7.0\tools/\nunit3-console.exe" -targetargs:".\Microsoft.CSharp.Extensions.Tests\bin\Release\Microsoft.CSharp.Extensions.Tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[Microsoft.CSharp.Extensions*]* -[Microsoft.CSharp.Extensions.Tests*]*"
