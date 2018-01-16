@@ -74,6 +74,20 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
+        #region TrimAndReduce
+
+        /// <summary>
+        /// Extension method to remove all the repeated blank spaces within the String itself, not only at the end or at the start of it
+        /// </summary>
+        /// <param name="input">string input parameter with extra spaces</param>
+        /// <returns>string with repeated blanks spaces removed</returns>
+        public static string TrimAndReduce(this string input)
+        {
+            return Regex.Replace(input, @"\s+", " ").Trim();
+        } 
+
+        #endregion
+
         #region ToInt()
 
         /// <summary>

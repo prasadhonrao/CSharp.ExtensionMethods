@@ -138,6 +138,31 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
+        #region TrimAndReduce()
+
+        [Test]
+        public void TrimAndReduce_String_With_Spaces_Input_Test()
+        {
+            var result = "  I'm    wearing the   cheese.  It isn't wearing me!   ".TrimAndReduce();
+            Assert.AreEqual("I'm wearing the cheese. It isn't wearing me!", result);
+        }
+
+        [Test]
+        public void TrimAndReduce_Empty_String_Input_Test()
+        {
+            var result = string.Empty.TrimAndReduce();
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [Test]
+        public void TrimAndReduce_String_With_No_Extra_Space_Test()
+        {
+            var result = "Hello World".TrimAndReduce();
+            Assert.AreEqual("Hello World", result);
+        }
+
+        #endregion
+
         #region ToInt()
         [Test]
         public void ToInt_Valid_String_To_Int_Test()
