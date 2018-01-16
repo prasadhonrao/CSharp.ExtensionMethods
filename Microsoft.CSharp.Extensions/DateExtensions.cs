@@ -98,9 +98,9 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region NextBusinessDay
+        #region NextWeekDay
 
-        public static DateTime NextBusinessDay(this DateTime dateTime)
+        public static DateTime NextWeekDay(this DateTime dateTime)
         {
             if (dateTime.DayOfWeek == DayOfWeek.Saturday)
                 return dateTime.AddDays(2);
@@ -109,9 +109,9 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region PreviousBusinessDay
+        #region PreviousWeekDay
 
-        public static DateTime PreviousBusinessDay(this DateTime dateTime)
+        public static DateTime PreviousWeekDay(this DateTime dateTime)
         {
             if (dateTime.DayOfWeek == DayOfWeek.Sunday)
                 return dateTime.AddDays(-2);

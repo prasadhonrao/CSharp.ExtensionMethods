@@ -156,56 +156,56 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region NextBusinessDay
+        #region NextWeekDay
 
         [Test]
-        public void NextBusinessDay_Weekday_Test()
+        public void NextWeekDay_Weekday_Test()
         {
-            var day = new DateTime(2018, 01, 01).NextBusinessDay();
+            var day = new DateTime(2018, 01, 01).NextWeekDay();
             int result = DateTime.Compare(day, new DateTime(2018, 01, 02));
             Assert.AreEqual(0, result);
         }
 
         [Test]
-        public void NextBusinessDay_Saturday_Test()
+        public void NextWeekDay_Saturday_Test()
         {
-            var day = new DateTime(2018, 01, 06).NextBusinessDay();
+            var day = new DateTime(2018, 01, 06).NextWeekDay();
             int result = DateTime.Compare(day, new DateTime(2018, 01, 08));
             Assert.AreEqual(0, result);
         }
 
         [Test]
-        public void NextBusinessDay_Sunday_Test()
+        public void NextWeekDay_Sunday_Test()
         {
-            var day = new DateTime(2018, 01, 07).NextBusinessDay();
+            var day = new DateTime(2018, 01, 07).NextWeekDay();
             int result = DateTime.Compare(day, new DateTime(2018, 01, 08));
             Assert.AreEqual(0, result);
         }
 
         #endregion
 
-        #region PreviousBusinessDay
+        #region PreviousWeekDay
 
         [Test]
-        public void PreviousBusinessDay_Weekday_Test()
+        public void PreviousWeekDay_Weekday_Test()
         {
-            var day = new DateTime(2018, 01, 02).PreviousBusinessDay();
+            var day = new DateTime(2018, 01, 02).PreviousWeekDay();
             int result = DateTime.Compare(day, new DateTime(2018, 01, 01));
             Assert.AreEqual(0, result);
         }
 
         [Test]
-        public void PreviousBusinessDay_Saturday_Test()
+        public void PreviousWeekDay_Saturday_Test()
         {
-            var day = new DateTime(2018, 01, 06).PreviousBusinessDay();
+            var day = new DateTime(2018, 01, 06).PreviousWeekDay();
             int result = DateTime.Compare(day, new DateTime(2018, 01, 05));
             Assert.AreEqual(0, result);
         }
 
         [Test]
-        public void PreviousBusinessDay_Sunday_Test()
+        public void PreviousWeekDay_Sunday_Test()
         {
-            var day = new DateTime(2018, 01, 07).PreviousBusinessDay();
+            var day = new DateTime(2018, 01, 07).PreviousWeekDay();
             int result = DateTime.Compare(day, new DateTime(2018, 01, 05));
             Assert.AreEqual(0, result);
         }
