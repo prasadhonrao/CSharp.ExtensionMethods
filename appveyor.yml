@@ -1,0 +1,14 @@
+before_build:
+ - nuget restore
+
+build_script:
+ - msbuild /p:Configuration=Release Microsoft.CSharp.Extensions.sln
+ 
+test_script:
+ .\tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:".\testrunner\NUnit.ConsoleRunner.3.7.0\tools/\nunit3-console.exe" -targetargs:".\Microsoft.CSharp.Extensions.Tests\bin\Release\Microsoft.CSharp.Extensions.Tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[Microsoft.CSharp.Extensions*]* -[Microsoft.CSharp.Extensions.Tests*]*"
+
+after_test:
+  - ps: |
+      $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
+      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+      bash codecov.sh -f "coverage.xml" -t 2ff19a3a-b268-4d5c-b78a-47f2aed1448e
