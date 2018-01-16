@@ -76,6 +76,13 @@ namespace Microsoft.CSharp.Extensions.Tests
             Assert.IsTrue(input == "4th");
         }
 
+        [Test]
+        public void GetOrdinalSuffix_11th_Test()
+        {
+            var input = new DateTime(2000, 01, 11).GetOrdinalSuffix();
+            Assert.IsTrue(input == "11th");
+        }
+
         #endregion
 
         #region IsWeekday
