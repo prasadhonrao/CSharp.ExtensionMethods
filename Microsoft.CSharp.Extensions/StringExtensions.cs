@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace Microsoft.CSharp.Extensions
@@ -74,6 +76,26 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
+        #region IsEmail
+
+        public static bool IsEmail(this string email)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(email.Trim()))
+                    throw new ArgumentNullException("Email address cannot be null or empty");
+
+                MailAddress address = new MailAddress(email);
+                return address != null ? true : false;
+            }
+            catch (FormatException) // email is not in a recognized format OR email contains non-ASCII characters.
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
         #region TrimAndReduce
 
         /// <summary>
@@ -84,7 +106,7 @@ namespace Microsoft.CSharp.Extensions
         public static string TrimAndReduce(this string input)
         {
             return Regex.Replace(input, @"\s+", " ").Trim();
-        } 
+        }
 
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace Microsoft.CSharp.Extensions.Tests
 {
@@ -134,6 +135,70 @@ namespace Microsoft.CSharp.Extensions.Tests
         {
             var result = "!@#$%^&*()".IsAllUpper();
             Assert.AreEqual(false, result);
+        }
+
+        #endregion
+
+        #region IsEmail
+
+        [Test]
+        public void IsEmail_Valid_Input_1_Test()
+        {
+            var result = "Honrao.Prasad@Gmail.com".IsEmail();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsEmail_Valid_Input_2_Test()
+        {
+            var result = "d.j@server1.proseware.com".IsEmail();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsEmail_Valid_Input_3_Test()
+        {
+            var result = "jones@ms1.proseware.com".IsEmail();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsEmail_Valid_Input_4_Test()
+        {
+            var result = "j@proseware.com9".IsEmail();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsEmail_Valid_Input_5_Test()
+        {
+            var result = "js#internal@proseware.com".IsEmail();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsEmail_Valid_Input_6_Test()
+        {
+            var result = "j_9@[129.126.118.1]".IsEmail();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsEmail_String_Input_Test()
+        {
+            Assert.That(() => "Prasad Honrao".IsEmail(), Throws.TypeOf<FormatException>());
+        }
+
+        [Test]
+        public void IsEmail_Number_String_Input_Test()
+        {
+            Assert.That(() => "1234567890".IsEmail(), Throws.TypeOf<FormatException>());
+        }
+
+        [Test]
+        public void IsEmail_Empty_String_Input_Test()
+        {
+            Assert.That(() => "".IsEmail(), Throws.TypeOf<ArgumentNullException>());
         }
 
         #endregion
