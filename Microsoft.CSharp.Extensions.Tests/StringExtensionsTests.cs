@@ -203,6 +203,38 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
+        #region IsNumeric
+
+        [Test]
+        public void IsNumeric_Valid_String_Input_Test()
+        {
+            var result = "1234567890".IsNumeric();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsNumeric_String_With_Special_Symbol_Input_Test()
+        {
+            var result = "123456789@".IsNumeric();
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void IsNumeric_Special_Symbol_String_Input_Test()
+        {
+            var result = "@@".IsNumeric();
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void IsNumeric_Empty_String_Input_Test()
+        {
+            var result = string.Empty.IsNumeric();
+            Assert.AreEqual(false, result);
+        }
+
+        #endregion
+
         #region TrimAndReduce()
 
         [Test]

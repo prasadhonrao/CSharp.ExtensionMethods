@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
@@ -92,6 +91,16 @@ namespace Microsoft.CSharp.Extensions
             {
                 throw;
             }
+        }
+
+        #endregion
+
+        #region IsNumeric
+
+        public static bool IsNumeric(this string input)
+        {
+            var isNumeric = Double.TryParse(input, out double n);
+            return isNumeric;
         }
 
         #endregion
