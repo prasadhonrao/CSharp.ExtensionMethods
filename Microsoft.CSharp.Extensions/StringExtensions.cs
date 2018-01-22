@@ -99,7 +99,8 @@ namespace Microsoft.CSharp.Extensions
 
         public static bool IsNumeric(this string input)
         {
-            var isNumeric = Double.TryParse(input, out double n);
+            double n;
+            var isNumeric = Double.TryParse(input, out n);
             return isNumeric;
         }
 
