@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="EmptyEnum.cs" />
     <Compile Include="Duration.cs" />
+    <Compile Include="IntExtensionsTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DateExtensionsTests.cs" />
