@@ -235,6 +235,45 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
+        #region IsPalilndrome
+
+        [Test]
+        public void IsPalindrome_Valid_String_Input_Test()
+        {
+            var result = "ABBA".IsPalindrome();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsPalindrome_Valid_Integer_String_Input_Test()
+        {
+            var result = "12321".IsPalindrome();
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsPalindrome_Invalid_Integer_String_Input_Test()
+        {
+            var result = "12345".IsPalindrome();
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void IsPalindrome_Invalid_String_Input_Test()
+        {
+            var result = "Prasad".IsPalindrome();
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void IsPalindrome_Empty_String_Input_Test()
+        {
+            var result = string.Empty.IsPalindrome();
+            Assert.AreEqual(true, result);
+        }
+
+        #endregion
+
         #region TrimAndReduce()
 
         [Test]

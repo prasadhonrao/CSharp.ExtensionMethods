@@ -105,6 +105,16 @@ namespace Microsoft.CSharp.Extensions
         }
 
         #endregion
+        
+        #region IsPalindrome
+
+        public static bool IsPalindrome(this string input)
+        {
+            var reverse = new string(input.ToCharArray().Reverse().ToArray());
+            return input.Equals(reverse);
+        }
+
+        #endregion
 
         #region TrimAndReduce
 
