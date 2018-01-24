@@ -10,4 +10,4 @@ Extension methods enable you to "add" methods to existing types without creating
 Nuget package coming soon...or maybe you can help creating one!
 
 ## Want to help?
-Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [contributing](contributing) and then check out one of our [issues](https://github.com/PrasadHonrao/Microsoft.CSharp.Extensions/issues).
+Want to file a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [contributing](https://github.com/PrasadHonrao/Microsoft.CSharp.Extensions/blob/master/CONTRIBUTING.md) and then check out one of our [issues](https://github.com/PrasadHonrao/Microsoft.CSharp.Extensions/issues).
