@@ -5,7 +5,7 @@ using System.Reflection;
 namespace Microsoft.CSharp.Extensions
 {
     /// <summary>
-    /// Enum Extension Class
+    /// Enum Extension Type
     /// </summary>
     public static class EnumExtensions
     {
@@ -19,29 +19,11 @@ namespace Microsoft.CSharp.Extensions
         public static string GetDescription(this Enum value)
         {
             FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
-            if (fieldInfo == null) return null;
+            //if (fieldInfo == null) return null;
             var attribute = (DescriptionAttribute)fieldInfo.GetCustomAttribute(typeof(DescriptionAttribute));
             return attribute == null ? string.Empty : attribute.Description;
         }
 
         #endregion
-    }
-
-    /// <summary>
-    /// Generic Enum Class (.NET Framework doesnot support Generic Enum Type so far, however revisit this code once its part of.NET Framework)
-    /// </summary>
-    /// <typeparam name="T">Generic Type Parameter</typeparam>
-    public class Enum<T> where T : struct, IConvertible
-    {
-        public static int Count
-        {
-            get
-            {
-                if (!typeof(T).IsEnum)
-                    throw new ArgumentException("T must be an enumerated type");
-
-                return Enum.GetNames(typeof(T)).Length;
-            }
-        }
     }
 }

@@ -38,26 +38,26 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region ReverseDigits
+        #region Reverse
 
         [Test]
         public void ReverseDigits_Valid_Int_Test()
         {
-            var result = 12345.ReverseDigits();
+            var result = 12345.Reverse();
             Assert.AreEqual(54321, result);
         }
 
         [Test]
         public void ReverseDigits_Zero_Test()
         {
-            var result = 0.ReverseDigits();
+            var result = 0.Reverse();
             Assert.AreEqual(0, result);
         }
 
         [Test]
         public void ReverseDigits_SameNumber_Test()
         {
-            var result =  111.ReverseDigits();
+            var result =  111.Reverse();
             Assert.AreEqual(111, result);
         }
 

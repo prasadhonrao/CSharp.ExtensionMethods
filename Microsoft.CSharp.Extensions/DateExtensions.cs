@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Microsoft.CSharp.Extensions
 {
+    /// <summary>
+    /// Date Extension Type
+    /// </summary>
     public static class DateExtensions
     {
         #region GetFirstDayOfWeek

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.CSharp.Extensions.Tests.Helpers;
+using NUnit.Framework;
 using System;
 
 namespace Microsoft.CSharp.Extensions.Tests

@@ -2,10 +2,18 @@
 
 namespace Microsoft.CSharp.Extensions
 {
+    /// <summary>
+    /// Int Extension Type
+    /// </summary>
     public static class IntExtensions
     {
         #region Factorial
 
+        /// <summary>
+        /// Function to find a factorial of a given number
+        /// </summary>
+        /// <param name="input">Integer input value</param>
+        /// <returns>Factorial of a given integer input</returns>
         public static long Factorial(this int input)
         {
             long factorial = 1;
@@ -19,9 +27,9 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region ReverseDigits
+        #region Reverse
 
-        public static int ReverseDigits(this int input)
+        public static int Reverse(this int input)
         {
             char[] digits = input.ToString().ToCharArray();
             Array.Reverse(digits);

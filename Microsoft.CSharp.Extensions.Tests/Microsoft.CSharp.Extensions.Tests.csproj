@@ -46,8 +46,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmptyEnum.cs" />
-    <Compile Include="Duration.cs" />
+    <Compile Include="Helpers\EmptyEnum.cs" />
+    <Compile Include="Helpers\Duration.cs" />
+    <Compile Include="Helpers\Enum.cs" />
     <Compile Include="IntExtensionsTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

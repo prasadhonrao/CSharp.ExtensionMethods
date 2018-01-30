@@ -6,38 +6,84 @@ namespace Microsoft.CSharp.Extensions.Tests
     [TestFixture]
     public class StringExtensionsTests
     {
+        #region Capitalize
+
+        [Test]
+        public void Capitalize_Lower_Case_Input_Test()
+        {
+            var result = "twinkle twinkle litte star".Capitalize();
+            Assert.AreEqual("Twinkle twinkle litte star", result);
+        }
+
+        [Test]
+        public void Capitalize_Upper_Case_Input_Test()
+        {
+            var result = "TWINKLE TWINKLE LITTE STAR".Capitalize();
+            Assert.AreEqual("Twinkle twinkle litte star", result);
+        }
+
+        [Test]
+        public void Capitalize_Each_Word_In_Capital_Input_Test()
+        {
+            var result = "Twinkle Twinkle Litte Star".Capitalize();
+            Assert.AreEqual("Twinkle twinkle litte star", result);
+        }
+
+        [Test]
+        public void Capitalize_Empty_String_Input_Test()
+        {
+            var result = string.Empty.Capitalize();
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [Test]
+        public void Capitalize_Integer_Input_Test()
+        {
+            var result = "1234567890".Capitalize();
+            Assert.AreEqual("1234567890", result);
+        }
+
+        [Test]
+        public void Capitalize_Special_Symbol_Input_Test()
+        {
+            var result = "!@#$%^&*()".Capitalize();
+            Assert.AreEqual("!@#$%^&*()", result);
+        }
+
+        #endregion
+
         #region GetOccurrenceCount
 
         [Test]
-        public void Occurence_Valid_Occurence_Test()
+        public void GetOccurrenceCount_Valid_Occurence_Test()
         {
             var occurenceCount = "supercalifragilisticexpealidocious".GetOccurrenceCount("li");
             Assert.AreEqual(3, occurenceCount);
         }
 
         [Test]
-        public void Occurence_Invalid_Occurence_Test()
+        public void GetOccurrenceCount_Invalid_Occurence_Test()
         {
             var occurenceCount = "prasad".GetOccurrenceCount("xxx");
             Assert.AreEqual(0, occurenceCount);
         }
 
         [Test]
-        public void Occurence_EmptyString_Search_Occurence_Test()
+        public void GetOccurrenceCount_EmptyString_Search_Occurence_Test()
         {
             var occurenceCount = "xxx".GetOccurrenceCount(string.Empty);
             Assert.AreEqual(0, occurenceCount);
         }
 
         [Test]
-        public void Occurence_EmptyString_Input_Occurence_Test()
+        public void GetOccurrenceCount_EmptyString_Input_Occurence_Test()
         {
             var occurenceCount = string.Empty.GetOccurrenceCount("Prasad");
             Assert.AreEqual(0, occurenceCount);
         }
 
         [Test]
-        public void Occurence_Empty_Input_Empty_Search_Occurence_Test()
+        public void GetOccurrenceCount_Empty_Input_Empty_Search_Occurence_Test()
         {
             var occurenceCount = string.Empty.GetOccurrenceCount(string.Empty);
             Assert.AreEqual(1, occurenceCount);
@@ -45,7 +91,8 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region GetWordCount()
+        #region GetWordCount
+
         [Test]
         public void GetWordCount_With_String_Input_Test()
         {
@@ -73,67 +120,68 @@ namespace Microsoft.CSharp.Extensions.Tests
             var result = "        ".GetWordCount();
             Assert.AreEqual(0, result);
         }
+        
         #endregion
 
-        #region IsAllLower()
+        #region IsLower
 
         [Test]
-        public void IsAllLower_LowerCase_String_Input_Test()
+        public void IsLower_LowerCase_String_Input_Test()
         {
-            var result = "twinkle twinkle litte star".IsAllLower();
+            var result = "twinkle twinkle litte star".IsLower();
             Assert.AreEqual(true, result);
         }
         
         [Test]
-        public void IsAllLower_MixedCase_String_Input_Test()
+        public void IsLower_MixedCase_String_Input_Test()
         {
-            var result = "Twinkle Twinkle Litte Star".IsAllLower();
+            var result = "Twinkle Twinkle Litte Star".IsLower();
             Assert.AreEqual(false, result);
         }
 
         [Test]
-        public void IsAllLower_Integer_String_Input_Test()
+        public void IsLower_Integer_String_Input_Test()
         {
-            var result = "1234567890".IsAllLower();
+            var result = "1234567890".IsLower();
             Assert.AreEqual(false, result);
         }
 
         [Test]
-        public void IsAllLower_Special_Symbol_String_Input_Test()
+        public void IsLower_Special_Symbol_String_Input_Test()
         {
-            var result = "!@#$%^&*()".IsAllLower();
+            var result = "!@#$%^&*()".IsLower();
             Assert.AreEqual(false, result);
         }
 
         #endregion
 
-        #region IsAllUpper()
+        #region IsUpper
 
         [Test]
-        public void IsAllUpper_UpperCase_String_Input_Test()
+        public void IsUpper_UpperCase_String_Input_Test()
         {
-            var result = "TWINKLE TWINKLE LITTE STAR".IsAllUpper();
+            var result = "TWINKLE TWINKLE LITTE STAR".IsUpper();
             Assert.AreEqual(true, result);
         }
 
         [Test]
-        public void IsAllUpper_MixedCase_String_Input_Test()
+        public void IsUpper_MixedCase_String_Input_Test()
         {
-            var result = "Twinkle Twinkle Litte Star".IsAllUpper();
+            var result = "Twinkle Twinkle Litte Star".IsUpper();
             Assert.AreEqual(false, result);
         }
 
         [Test]
-        public void IsAllUpper_Integer_String_Input_Test()
+        public void IsUpper_Integer_String_Input_Test()
         {
-            var result = "1234567890".IsAllUpper();
+            var result = "1234567890".IsUpper();
             Assert.AreEqual(false, result);
         }
 
         [Test]
-        public void IsAllUpper_Special_Symbol_String_Input_Test()
+        public void IsUpper_Special_Symbol_String_Input_Test()
         {
-            var result = "!@#$%^&*()".IsAllUpper();
+            var result = "!@#$%^&*()".IsUpper();
             Assert.AreEqual(false, result);
         }
 
@@ -184,13 +232,13 @@ namespace Microsoft.CSharp.Extensions.Tests
         }
 
         [Test]
-        public void IsEmail_String_Input_Test()
+        public void IsEmail_Invalid_String_Input_Test()
         {
             Assert.That(() => "Prasad Honrao".IsEmail(), Throws.TypeOf<FormatException>());
         }
 
         [Test]
-        public void IsEmail_Number_String_Input_Test()
+        public void IsEmail_Number_As_String_Input_Test()
         {
             Assert.That(() => "1234567890".IsEmail(), Throws.TypeOf<FormatException>());
         }
@@ -274,7 +322,53 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region TrimAndReduce()
+        #region SwapCase
+
+        [Test]
+        public void SwapCase_String_Input_Test()
+        {
+            var result = "AaAaAa".SwapCase();
+            Assert.AreEqual("aAaAaA", result);
+        }
+
+        [Test]
+        public void SwapCase_UpperCase_String_Input_Test()
+        {
+            var result = "AAAAA".SwapCase();
+            Assert.AreEqual("aaaaa", result);
+        }
+
+        [Test]
+        public void SwapCase_LowerCase_String_Input_Test()
+        {
+            var result = "aaaaa".SwapCase();
+            Assert.AreEqual("AAAAA", result);
+        }
+
+        [Test]
+        public void SwapCase_Empty_String_Input_Test()
+        {
+            var result = string.Empty.SwapCase();
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [Test]
+        public void SwapCase_Alphanumeric_String_Input_Test()
+        {
+            var result = "pras@d".SwapCase();
+            Assert.AreEqual("PRAS@D", result);
+        }
+
+        [Test]
+        public void SwapCase_Integer_String_Input_Test()
+        {
+            var result = "1234567890".SwapCase();
+            Assert.AreEqual("1234567890", result);
+        }
+
+        #endregion
+
+        #region TrimAndReduce
 
         [Test]
         public void TrimAndReduce_String_With_Spaces_Input_Test()
@@ -299,7 +393,8 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region ToInt()
+        #region ToInt
+
         [Test]
         public void ToInt_Valid_String_To_Int_Test()
         {
@@ -327,89 +422,93 @@ namespace Microsoft.CSharp.Extensions.Tests
             var input = "!@#$%^".ToInt();
             Assert.IsTrue(input == 0);
         }
-        #endregion
-
-        #region ToReverseCase()
-
-        [Test]
-        public void ToReverseCase_String_Input_Test()
-        {
-            var result = "AaAaAa".ToReverseCase();
-            Assert.AreEqual("aAaAaA", result);
-        }
-
-        [Test]
-        public void ToReverseCase_UpperCase_String_Input_Test()
-        {
-            var result = "AAAAA".ToReverseCase();
-            Assert.AreEqual("aaaaa", result);
-        }
-
-        [Test]
-        public void ToReverseCase_LowerCase_String_Input_Test()
-        {
-            var result = "aaaaa".ToReverseCase();
-            Assert.AreEqual("AAAAA", result);
-        }
-
-        [Test]
-        public void ToReverseCase_Empty_String_Input_Test()
-        {
-            var result = string.Empty.ToReverseCase();
-            Assert.AreEqual(string.Empty, result);
-        }
-
-        [Test]
-        public void ToReverseCase_Alphanumeric_String_Input_Test()
-        {
-            var result = "pras@d".ToReverseCase();
-            Assert.AreEqual("PRAS@D", result);
-        }
-
-        [Test]
-        public void ToReverseCase_Integer_String_Input_Test()
-        {
-            var result = "1234567890".ToReverseCase();
-            Assert.AreEqual("1234567890", result);
-        }
 
         #endregion
-     
-        #region ToTitleCase()
+
+        #region ToTitleCase
 
         [Test]
-        public void ToTitleCase_Lower_Case_Input_Test()
+        public void ToTitleCase_Upper_Case_String_Input_Test()
         {
-            var result = "twinkle twinkle litte star".ToTitleCase();
-            Assert.AreEqual("Twinkle twinkle litte star", result);
+            var output = "WAR AND PEACE".ToTitleCase();
+            Assert.AreEqual("War And Peace", output);
         }
 
         [Test]
-        public void ToTitleCase_Upper_Case_Input_Test()
+        public void ToTitleCase_Lower_Case_String_Input_Test()
         {
-            var result = "Twinkle Twinkle Litte Star".ToTitleCase();
-            Assert.AreEqual("Twinkle Twinkle Litte Star", result);
+            var output = "war and peace".ToTitleCase();
+            Assert.AreEqual("War And Peace", output);
+        }
+
+        [Test]
+        public void ToTitleCase_MixCase_String_Input_Test()
+        {
+            var output = "WAR AND a PEACE".ToTitleCase();
+            Assert.AreEqual("War And A Peace", output);
+        }
+
+        [Test]
+        public void ToTitleCase_German_String_Input_Test()
+        {
+            var output = "Per anhalter durch die Galaxis".ToTitleCase();
+            Assert.AreEqual("Per Anhalter Durch Die Galaxis", output);
         }
 
         [Test]
         public void ToTitleCase_Empty_String_Input_Test()
         {
-            var result = string.Empty.ToTitleCase();
-            Assert.AreEqual(string.Empty, result);
+            var output = "".ToTitleCase();
+            Assert.AreEqual("", output);
         }
 
         [Test]
-        public void ToTitleCase_Integer_Input_Test()
+        public void ToTitleCase_Number_String_Input_Test()
         {
-            var result = "1234567890".ToTitleCase();
-            Assert.AreEqual("1234567890", result);
+            var output = "1234567890".ToTitleCase();
+            Assert.AreEqual("1234567890", output);
+        }
+
+        [Test]
+        public void ToTitleCase_Number_With_Space_String_Input_Test()
+        {
+            var output = "123 456 7890".ToTitleCase();
+            Assert.AreEqual("123 456 7890", output);
+        }
+
+        [Test]
+        public void ToTitleCase_String_Integer_Input_Test()
+        {
+            var output = "My favorite number is 25.".ToTitleCase();
+            Assert.AreEqual("My Favorite Number Is 25.", output);
         }
 
         [Test]
         public void ToTitleCase_Special_Symbol_Input_Test()
         {
-            var result = "!@#$%^&*()".ToTitleCase();
-            Assert.AreEqual("!@#$%^&*()", result);
+            var output = "234 k3l2 *43 fun".ToTitleCase();
+            Assert.AreEqual("234 K3l2 *43 Fun", output);
+        }
+
+        [Test]
+        public void ToTitleCase_Apostrophes_Input_Test()
+        {
+            var output = "He's an engineer, isn't he?".ToTitleCase();
+            Assert.AreEqual("He's An Engineer, Isn't He?", output);
+        }
+
+        [Test]
+        public void ToTitleCase_Trailing_Space_Input_Test()
+        {
+            var output = "how many more test cases??       ".ToTitleCase();
+            Assert.AreEqual("How Many More Test Cases??       ", output);
+        }
+
+        [Test]
+        public void ToTitleCase_Leading_Space_Input_Test()
+        {
+            var output = "     how many more test cases??".ToTitleCase();
+            Assert.AreEqual("     How Many More Test Cases??", output);
         }
 
         #endregion

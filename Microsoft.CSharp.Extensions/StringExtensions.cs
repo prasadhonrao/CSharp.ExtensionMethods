@@ -5,8 +5,31 @@ using System.Text.RegularExpressions;
 
 namespace Microsoft.CSharp.Extensions
 {
+    /// <summary>
+    /// String Extension Type
+    /// </summary>
     public static class StringExtensions
     {
+        #region Capitalize
+
+        /// <summary>
+        /// Return a capitalized version of given input string i.e. make the first character have upper case and the rest lower case.
+        /// </summary>
+        /// <param name="input">input string parameter</param>
+        /// <returns>String with first letter in upper case</returns>
+        public static string Capitalize(this string input)
+        {
+            if (input.Length > 0)
+            {
+                char[] array = input.ToLower().ToCharArray();
+                array[0] = char.ToUpper(array[0]);
+                return new string(array);
+            }
+            return input;
+        }
+
+        #endregion
+
         #region GetOccurrenceCount
 
         // Usage: var count = "supercalifragilisticexpealidocious".GetOccurrenceCount("li"); // returns 3
@@ -45,14 +68,14 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region IsAllLower
+        #region IsLower
 
         /// <summary>
         /// Find if all the characters from given input string are in lower case or not
         /// </summary>
         /// <param name="input">input string whose individual characters needs to be checked</param>
         /// <returns>Boolen result (true / false) indicating whether all the characters are in lower case or not</returns>
-        public static bool IsAllLower(this string input)
+        public static bool IsLower(this string input)
         {
             char[] chars = input.ToCharArray();
             return chars.All(c => (char.IsLower(c) || char.IsWhiteSpace(c)));
@@ -60,14 +83,14 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region IsAllUpper
+        #region IsUpper
 
         /// <summary>
         /// Find if all the characters from given input string are in upper case or not
         /// </summary>
         /// <param name="input">input string whose individual characters needs to be checked</param>
         /// <returns>Boolen result (true / false) indicating whether all the characters are in upper case or not</returns>
-        public static bool IsAllUpper(this string input)
+        public static bool IsUpper(this string input)
         {
             char[] chars = input.ToCharArray();
             return chars.All(c => (char.IsUpper(c) || char.IsWhiteSpace(c)));
@@ -76,16 +99,20 @@ namespace Microsoft.CSharp.Extensions
         #endregion
 
         #region IsEmail
-
-        public static bool IsEmail(this string email)
+        /// <summary>
+        /// Function to identify whether given input string is a valid email address or not
+        /// </summary>
+        /// <param name="input">String input parameter to check for email validity</param>
+        /// <returns>True if given input string is a valid email address, false otherwise</returns>
+        public static bool IsEmail(this string input)
         {
             try
             {
-                if (String.IsNullOrEmpty(email.Trim()))
+                if (String.IsNullOrEmpty(input.Trim()))
                     throw new ArgumentNullException("Email address cannot be null or empty");
 
-                MailAddress address = new MailAddress(email);
-                return address != null ? true : false;
+                MailAddress address = new MailAddress(input);
+                return true;
             }
             catch (FormatException) // email is not in a recognized format OR email contains non-ASCII characters.
             {
@@ -97,6 +124,11 @@ namespace Microsoft.CSharp.Extensions
 
         #region IsNumeric
 
+        /// <summary>
+        /// Function to identify whether given input string can be converted to a valid numeric value or not
+        /// </summary>
+        /// <param name="input">Input string parameter</param>
+        /// <returns>True if given input string is a valid numeric value, false otherwise</returns>
         public static bool IsNumeric(this string input)
         {
             double n;
@@ -105,13 +137,36 @@ namespace Microsoft.CSharp.Extensions
         }
 
         #endregion
-        
+
         #region IsPalindrome
 
+        /// <summary>
+        /// Function to identify whether given input string is palindrome or not
+        /// </summary>
+        /// <param name="input">String input parameter</param>
+        /// <returns>True if given input string is palindrome, false otherwise</returns>
         public static bool IsPalindrome(this string input)
         {
             var reverse = new string(input.ToCharArray().Reverse().ToArray());
             return input.Equals(reverse);
+        }
+
+        #endregion
+
+        #region SwapCase
+
+        /// <summary>
+        /// Return a copy of given input string with uppercase characters converted to lowercase and vice versa.
+        /// </summary>
+        /// <param name="input">Input string whose character case needs to be reversed</param>
+        /// <returns>String with reverse characters</returns>
+        public static string SwapCase(this string input)
+        {
+            return new string(input.Select
+                                    (c => char.IsLetter(c) ? (char.IsUpper(c) ?
+                                          char.ToLower(c) : char.ToUpper(c)) : c)
+                                    .ToArray()
+                             );
         }
 
         #endregion
@@ -150,42 +205,21 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region ToReverseCase
-
-        /// <summary>
-        /// Reverse case of all alphabetic character in a given input string
-        /// </summary>
-        /// <param name="input">input string whose character case needs to be reversed</param>
-        /// <returns>string with reverse characters</returns>
-        public static string ToReverseCase(this string input)
-        {
-            return new string(input.Select
-                                    (c => char.IsLetter(c) ? (char.IsUpper(c) ?
-                                          char.ToLower(c) : char.ToUpper(c)) : c)
-                                    .ToArray()
-                             );
-        }
-
-        #endregion
-
         #region ToTitleCase
 
         /// <summary>
-        /// Convert the first letter of the input string to Title case / Upper case
+        /// Converts the specified string to title case (except for words that are entirely in uppercase, which are considered to be acronyms).
         /// </summary>
-        /// <param name="input">input string parameter</param>
-        /// <returns>String with first letter in title case</returns>
+        /// <param name="input">String input parameter</param>
+        /// <returns>String with each word converted to title case</returns>
         public static string ToTitleCase(this string input)
         {
-            if (input.Length > 0)
-            {
-                char[] array = input.ToCharArray();
-                array[0] = char.ToUpper(array[0]);
-                return new string(array);
-            }
-            return input;
+            var strings = input.Split(' ');
+            var ret = string.Concat(strings.Select(a => a = a.Capitalize() + " "));
+            return ret.Substring(0, ret.Length - 1);
         }
 
         #endregion
+
     }
 }
