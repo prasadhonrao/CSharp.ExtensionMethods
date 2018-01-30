@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateExtensions.cs" />
+    <Compile Include="DoubleExtensions.cs" />
     <Compile Include="EnumExtensions.cs" />
     <Compile Include="IntExtensions.cs" />
     <Compile Include="StringExtensions.cs" />
