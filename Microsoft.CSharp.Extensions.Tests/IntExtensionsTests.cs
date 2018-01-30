@@ -41,24 +41,64 @@ namespace Microsoft.CSharp.Extensions.Tests
         #region Reverse
 
         [Test]
-        public void ReverseDigits_Valid_Int_Test()
+        public void Reverse_Valid_Int_Test()
         {
             var result = 12345.Reverse();
             Assert.AreEqual(54321, result);
         }
 
         [Test]
-        public void ReverseDigits_Zero_Test()
+        public void Reverse_Zero_Test()
         {
             var result = 0.Reverse();
             Assert.AreEqual(0, result);
         }
 
         [Test]
-        public void ReverseDigits_SameNumber_Test()
+        public void Reverse_SameNumber_Test()
         {
             var result =  111.Reverse();
             Assert.AreEqual(111, result);
+        }
+
+        #endregion
+
+        #region IsPrime
+
+        [Test]
+        public void IsPrime_Number_0_Test()
+        {
+            Assert.IsFalse(0.IsPrime());
+        }
+
+        [Test]
+        public void IsPrime_Number_1_Test()
+        {
+            Assert.IsFalse(1.IsPrime());
+        }
+
+        [Test]
+        public void IsPrime_Number_2_Test()
+        {
+            Assert.IsTrue(2.IsPrime());
+        }
+
+        [Test]
+        public void IsPrime_Number_3_Test()
+        {
+            Assert.IsTrue(3.IsPrime());
+        }
+
+        [Test]
+        public void IsPrime_Number_4_Test()
+        {
+            Assert.IsFalse(4.IsPrime());
+        }
+
+        [Test]
+        public void IsPrime_Number_23_Test()
+        {
+            Assert.IsTrue(23.IsPrime());
         }
 
         #endregion

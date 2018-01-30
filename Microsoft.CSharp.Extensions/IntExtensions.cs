@@ -35,7 +35,26 @@ namespace Microsoft.CSharp.Extensions
             Array.Reverse(digits);
             string newDigits = new string(digits);
             return int.Parse(newDigits);
-        } 
+        }
+
+        #endregion
+
+        #region IsPrime
+
+        public static bool IsPrime(this int input)
+        {
+            int k = 0;
+            for (int i = 1; i <= input; i++)
+            {
+                if (input % i == 0)
+                {
+                    k++;
+                }
+            }
+            if (k == 2)
+                return true;
+            return false;
+        }
 
         #endregion
     }
