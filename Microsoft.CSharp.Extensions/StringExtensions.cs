@@ -153,6 +153,76 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
+        #region RemoveFirst
+
+        /// <summary>
+        /// Function to remove the given number of characters from input string
+        /// </summary>
+        /// <param name="input">string input</param>
+        /// <param name="numberOfCharacteresToRemove">number of characters to remove from first</param>
+        /// <returns>string with characters removed </returns>
+        public static string RemoveFirst(this String input, int numberOfCharacteresToRemove)
+        {
+            if (input == string.Empty)
+                throw new ArgumentException("Characters cannot be removed from an empty string.");
+
+            return input.Substring(numberOfCharacteresToRemove);
+        }
+
+        #endregion
+
+        #region RemoveFirstCharacter
+
+        /// <summary>
+        /// Function to remove the first character from given the string
+        /// </summary>
+        /// <param name="input">Input string from which first character needs to be removed</param>
+        /// <returns>string with removed first character</returns>
+        public static string RemoveFirstCharacter(this String input)
+        {
+            if (input == string.Empty)
+                throw new ArgumentException("First character cannot be removed from an empty string.");
+
+            return input.Substring(1);
+        }
+
+        #endregion
+
+        #region RemoveLast
+
+        /// <summary>
+        /// Function to remove the given number of characters from end of input string
+        /// </summary>
+        /// <param name="input">string input</param>
+        /// <param name="numberOfCharacteresToRemove">number of characters to remove from the end</param>
+        /// <returns>string with characters removed </returns>
+        public static string RemoveLast(this String input, int numberOfCharacteresToRemove)
+        {
+            if (input == string.Empty)
+                throw new ArgumentException("Characters cannot be removed from an empty string.");
+
+            return input.Substring(0, input.Length - numberOfCharacteresToRemove);
+        }
+
+        #endregion
+
+        #region RemoveLastCharacter
+
+        /// <summary>
+        /// Function to remove the last character from given the string
+        /// </summary>
+        /// <param name="input">Input string from which last character needs to be removed</param>
+        /// <returns>string with removed last character</returns>
+        public static string RemoveLastCharacter(this String input)
+        {
+            if (input == string.Empty)
+                throw new ArgumentException("Last character cannot be removed from an empty string.");
+
+            return input.Substring(0, input.Length - 1);
+        }
+
+        #endregion
+
         #region SwapCase
 
         /// <summary>

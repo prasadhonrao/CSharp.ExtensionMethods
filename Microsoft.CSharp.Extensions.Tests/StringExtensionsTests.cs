@@ -283,7 +283,7 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
-        #region IsPalilndrome
+        #region IsPalindrome
 
         [Test]
         public void IsPalindrome_Valid_String_Input_Test()
@@ -318,6 +318,158 @@ namespace Microsoft.CSharp.Extensions.Tests
         {
             var result = string.Empty.IsPalindrome();
             Assert.AreEqual(true, result);
+        }
+
+        #endregion
+
+        #region RemoveFirst
+
+        [Test]
+        public void RemoveFirst_Empty_String_Test()
+        {
+            Assert.That(() => string.Empty.RemoveFirst(5), Throws.TypeOf<ArgumentException>());
+        }
+
+        [Test]
+        public void RemoveFirst_WhiteSpace_String_Test()
+        {
+            var result = "     ".RemoveFirst(2);
+            Assert.AreEqual("   ", result);
+        }
+
+        [Test]
+        public void RemoveFirst_Valid_String_Test()
+        {
+            var result = "ABCDE".RemoveFirst(2);
+            Assert.AreEqual("CDE", result);
+        }
+
+        [Test]
+        public void RemoveFirst_Integer_String_Test()
+        {
+            var result = "1234567890".RemoveFirst(5);
+            Assert.AreEqual("67890", result);
+        }
+
+        [Test]
+        public void RemoveFirst_Special_Symbol_String_Test()
+        {
+            var result = "!@#$%^&*()".RemoveFirst(0);
+            Assert.AreEqual("!@#$%^&*()", result);
+        }
+
+        #endregion
+
+        #region RemoveFirstCharacter
+
+        [Test]
+        public void RemoveFirstCharacter_Empty_String_Test()
+        {
+            Assert.That(() => string.Empty.RemoveFirstCharacter(), Throws.TypeOf<ArgumentException>());
+        }
+
+        [Test]
+        public void RemoveFirstCharacter_WhiteSpace_String_Test()
+        {
+            var result = "     ".RemoveFirstCharacter();
+            Assert.AreEqual("    ", result);
+        }
+
+        [Test]
+        public void RemoveFirstCharacter_Valid_String_Test()
+        {
+            var result = "ABCDE".RemoveFirstCharacter();
+            Assert.AreEqual("BCDE", result);
+        }
+
+        [Test]
+        public void RemoveFirstCharacter_Integer_String_Test()
+        {
+            var result = "1234567890".RemoveFirstCharacter();
+            Assert.AreEqual("234567890", result);
+        }
+
+        [Test]
+        public void RemoveFirstCharacter_Special_Symbol_String_Test()
+        {
+            var result = "!@#$%^&*()".RemoveFirstCharacter();
+            Assert.AreEqual("@#$%^&*()", result);
+        }
+
+        #endregion
+
+        #region RemoveLast
+
+        [Test]
+        public void RemoveLast_Empty_String_Test()
+        {
+            Assert.That(() => string.Empty.RemoveLast(5), Throws.TypeOf<ArgumentException>());
+        }
+
+        [Test]
+        public void RemoveLast_WhiteSpace_String_Test()
+        {
+            var result = "     ".RemoveLast(2);
+            Assert.AreEqual("   ", result);
+        }
+
+        [Test]
+        public void RemoveLast_Valid_String_Test()
+        {
+            var result = "ABCDE".RemoveLast(2);
+            Assert.AreEqual("ABC", result);
+        }
+
+        [Test]
+        public void RemoveLast_Integer_String_Test()
+        {
+            var result = "1234567890".RemoveLast(5);
+            Assert.AreEqual("12345", result);
+        }
+
+        [Test]
+        public void RemoveLast_Special_Symbol_String_Test()
+        {
+            var result = "!@#$%^&*()".RemoveLast(0);
+            Assert.AreEqual("!@#$%^&*()", result);
+        }
+
+        #endregion
+
+        #region RemoveLastCharacter
+
+        [Test]
+        public void RemoveLastCharacter_Empty_String_Test()
+        {
+            Assert.That(() => string.Empty.RemoveLastCharacter(), Throws.TypeOf<ArgumentException>());
+        }
+
+        [Test]
+        public void RemoveLastCharacter_WhiteSpace_String_Test()
+        {
+            var result = "     ".RemoveLastCharacter();
+            Assert.AreEqual("    ", result);
+        }
+
+        [Test]
+        public void RemoveLastCharacter_Valid_String_Test()
+        {
+            var result = "ABCDE".RemoveLastCharacter();
+            Assert.AreEqual("ABCD", result);
+        }
+
+        [Test]
+        public void RemoveLastCharacter_Integer_String_Test()
+        {
+            var result = "1234567890".RemoveLastCharacter();
+            Assert.AreEqual("123456789", result);
+        }
+
+        [Test]
+        public void RemoveLastCharacter_Special_Symbol_String_Test()
+        {
+            var result = "!@#$%^&*()".RemoveLastCharacter();
+            Assert.AreEqual("!@#$%^&*(", result);
         }
 
         #endregion
