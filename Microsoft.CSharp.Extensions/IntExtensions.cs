@@ -27,15 +27,29 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
-        #region Reverse
+        #region IsPerfect
 
-        public static int Reverse(this int input)
+        public static bool IsPerfect(this int input)
         {
-            char[] digits = input.ToString().ToCharArray();
-            Array.Reverse(digits);
-            string newDigits = new string(digits);
-            return int.Parse(newDigits);
+            if (input <= 0) return false;
+
+            int sum = 0,
+                number = 0;
+
+            number = input;
+
+            for (int i = 1; i < number; i++)
+            {
+                if (number % i == 0)
+                {
+                    sum = sum + i;
+                }
+            }
+            if (sum == number)
+                return true;
+            return false;
         }
+
 
         #endregion
 
@@ -57,5 +71,18 @@ namespace Microsoft.CSharp.Extensions
         }
 
         #endregion
+
+        #region Reverse
+
+        public static int Reverse(this int input)
+        {
+            char[] digits = input.ToString().ToCharArray();
+            Array.Reverse(digits);
+            string newDigits = new string(digits);
+            return int.Parse(newDigits);
+        }
+
+        #endregion
+
     }
 }
