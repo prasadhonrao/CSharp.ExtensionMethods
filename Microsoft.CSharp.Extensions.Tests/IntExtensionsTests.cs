@@ -38,6 +38,28 @@ namespace Microsoft.CSharp.Extensions.Tests
 
         #endregion
 
+        #region IsArmstrong
+
+        [Test]
+        public void IsArmstrong_0_Test()
+        {
+            Assert.IsFalse(0.IsArmstrong());
+        }
+
+        [Test]
+        public void IsArmstrong_5_Test()
+        {
+            Assert.IsFalse(5.IsArmstrong());
+        }
+
+        [Test]
+        public void IsArmstrong_371_Test()
+        {
+            Assert.IsTrue(371.IsArmstrong());
+        }
+
+        #endregion
+
         #region IsPerfect
 
         [Test]

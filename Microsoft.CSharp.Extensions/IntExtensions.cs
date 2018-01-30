@@ -27,6 +27,34 @@ namespace Microsoft.CSharp.Extensions
 
         #endregion
 
+        #region IsArmstrong
+
+        /// <summary>
+        /// Function to check whether the entered number is an Armstrong number or not . 
+        /// An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself.
+        /// </summary>
+        /// <param name="input">Input number</param>
+        /// <returns>True if Armstrong, false otherwise</returns>
+        public static bool IsArmstrong(this int input)
+        {
+            if (input <= 0) return false;
+
+            int remainder, sum = 0;
+            Console.Write("enter the Number");
+
+            for (int i = input; i > 0; i = i / 10)
+            {
+                remainder = i % 10;
+                sum = sum + remainder * remainder * remainder;
+            }
+
+            if (sum == input)
+                return true;
+            return false;
+        }
+
+        #endregion
+
         #region IsPerfect
 
         public static bool IsPerfect(this int input)
@@ -57,6 +85,8 @@ namespace Microsoft.CSharp.Extensions
 
         public static bool IsPrime(this int input)
         {
+            if (input <= 0) return false;
+
             int k = 0;
             for (int i = 1; i <= input; i++)
             {
