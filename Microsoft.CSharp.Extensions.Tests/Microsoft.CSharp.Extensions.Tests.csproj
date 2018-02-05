@@ -55,7 +55,6 @@
     <Compile Include="DateExtensionsTests.cs" />
     <Compile Include="EnumExtensionsTests.cs" />
     <Compile Include="DoubleExtensionsTests.cs" />
-    <Compile Include="GenericExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.CSharp.Extensions\Microsoft.CSharp.Extensions.csproj">

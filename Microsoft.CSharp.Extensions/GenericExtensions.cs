@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Microsoft.CSharp.Extensions
 {
@@ -15,7 +16,20 @@ namespace Microsoft.CSharp.Extensions
         /// <returns></returns>
         public static string ToJson<T>(this T input)
         {
-            return input != null ? JsonConvert.SerializeObject(input) : null;
+            var serializerSettings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Auto,
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                ObjectCreationHandling = ObjectCreationHandling.Auto,
+                Formatting = Formatting.Indented
+            };
+
+            var serializedStr = JsonConvert.SerializeObject(string.Empty, Formatting.Indented, serializerSettings);
+            Debug.WriteLine("*************** Serialized JSON ***************************");
+            Debug.WriteLine(serializedStr);
+
+            return input != null ? JsonConvert.SerializeObject(input, Formatting.Indented, serializerSettings) : null;
         }
     }
 }
