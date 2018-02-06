@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Microsoft.CSharp.Extensions.Tests.Helpers
+namespace CSharp.Extensions.Tests.Helpers
 {
     public enum Duration
     {

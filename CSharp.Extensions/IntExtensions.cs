@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.CSharp.Extensions
+namespace CSharp.Extensions
 {
     /// <summary>
     /// Int Extension Type

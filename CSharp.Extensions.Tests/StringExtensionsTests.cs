@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Microsoft.CSharp.Extensions.Tests
+namespace CSharp.Extensions.Tests
 {
     [TestFixture]
     public class StringExtensionsTests

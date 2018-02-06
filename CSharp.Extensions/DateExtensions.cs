@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Microsoft.CSharp.Extensions
+namespace CSharp.Extensions
 {
     /// <summary>
     /// Date Extension Type

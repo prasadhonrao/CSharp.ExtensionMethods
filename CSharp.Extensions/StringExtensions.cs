@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 
-namespace Microsoft.CSharp.Extensions
+namespace CSharp.Extensions
 {
     /// <summary>
     /// String Extension Type

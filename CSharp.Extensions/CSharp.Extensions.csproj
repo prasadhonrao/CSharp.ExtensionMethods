@@ -7,8 +7,8 @@
     <ProjectGuid>{1213AFE4-11EE-4565-9761-961B24CD77BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.CSharp.Extensions</RootNamespace>
-    <AssemblyName>Microsoft.CSharp.Extensions</AssemblyName>
+    <RootNamespace>CSharp.Extensions</RootNamespace>
+    <AssemblyName>CSharp.Extensions</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -57,13 +57,13 @@
     <Compile Include="DoubleExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.CSharp.Extensions\Microsoft.CSharp.Extensions.csproj">
-      <Project>{1213afe4-11ee-4565-9761-961b24cd77bd}</Project>
-      <Name>Microsoft.CSharp.Extensions</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\CSharp.Extensions\CSharp.Extensions.csproj">
+      <Project>{1213afe4-11ee-4565-9761-961b24cd77bd}</Project>
+      <Name>CSharp.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

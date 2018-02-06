@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Microsoft.CSharp.Extensions
+namespace CSharp.Extensions
 {
     /// <summary>
     /// Enum Extension Type

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Microsoft.CSharp.Extensions
+namespace CSharp.Extensions
 {
     /// <summary>
     /// Double Extension Type
