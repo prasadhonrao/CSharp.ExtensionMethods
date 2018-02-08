@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Extensions", "CSharp.Extensions\CSharp.Extensions.csproj", "{1213AFE4-11EE-4565-9761-961B24CD77BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.CSharp.Extensions.Tests", "CSharp.Extensions.Tests\Microsoft.CSharp.Extensions.Tests.csproj", "{D023D45D-6EE3-4A91-9D48-FDCE74B5C540}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Extensions.Tests", "CSharp.Extensions.Tests\CSharp.Extensions.Tests.csproj", "{D023D45D-6EE3-4A91-9D48-FDCE74B5C540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
