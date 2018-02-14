@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace CSharp.Extensions.Tests
+namespace CSharp.ExtensionMethods.Tests
 {
     [TestFixture]
     public class DateExtensionsTests

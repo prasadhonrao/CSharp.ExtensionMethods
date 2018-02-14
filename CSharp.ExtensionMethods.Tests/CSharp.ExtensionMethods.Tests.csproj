@@ -7,8 +7,8 @@
     <ProjectGuid>{D023D45D-6EE3-4A91-9D48-FDCE74B5C540}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSharp.Extensions.Tests</RootNamespace>
-    <AssemblyName>CSharp.Extensions.Tests</AssemblyName>
+    <RootNamespace>CSharp.ExtensionMethods.Tests</RootNamespace>
+    <AssemblyName>CSharp.ExtensionMethods.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -60,9 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharp.Extensions\CSharp.Extensions.csproj">
+    <ProjectReference Include="..\CSharp.ExtensionMethods\CSharp.ExtensionMethods.csproj">
       <Project>{1213afe4-11ee-4565-9761-961b24cd77bd}</Project>
-      <Name>CSharp.Extensions</Name>
+      <Name>CSharp.ExtensionMethods</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

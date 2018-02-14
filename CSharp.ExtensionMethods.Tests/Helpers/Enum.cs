@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharp.Extensions.Tests.Helpers
+namespace CSharp.ExtensionMethods.Tests.Helpers
 {
     /// <summary>
     /// Generic Enum Class (.NET Framework doesnot support Generic Enum Type so far, however revisit this code once its part of.NET Framework)

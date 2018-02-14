@@ -1,8 +1,8 @@
-﻿using CSharp.Extensions.Tests.Helpers;
+﻿using CSharp.ExtensionMethods.Tests.Helpers;
 using NUnit.Framework;
 using System;
 
-namespace CSharp.Extensions.Tests
+namespace CSharp.ExtensionMethods.Tests
 {
     [TestFixture]
     public class EnumExtensionsTests

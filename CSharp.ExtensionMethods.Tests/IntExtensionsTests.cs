@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace CSharp.Extensions.Tests
+namespace CSharp.ExtensionMethods.Tests
 {
     [TestFixture]
     public class IntExtensionsTests
