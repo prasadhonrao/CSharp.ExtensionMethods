@@ -1,13 +1,13 @@
 language: csharp
-solution: CSharp.Extensions.sln
+solution: CSharp.ExtensionMethods.sln
 
 before_install:
   - nuget install NUnit.Console -Version 3.7.0 -OutputDirectory testrunner
   - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 
 before_script:
-  - nuget restore CSharp.Extensions.sln
+  - nuget restore CSharp.ExtensionMethods.sln
   
 script:
-  - msbuild /p:Configuration=Release CSharp.Extensions.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./CSharp.Extensions.Tests/bin/Release/CSharp.Extensions.Tests.dll
+  - msbuild /p:Configuration=Release CSharp.ExtensionMethods.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./CSharp.ExtensionMethods.Tests/bin/Release/CSharp.ExtensionMethods.Tests.dll
