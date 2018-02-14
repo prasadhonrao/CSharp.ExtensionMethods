@@ -6,6 +6,38 @@ namespace CSharp.ExtensionMethods.Tests
     [TestFixture]
     public class DateExtensionsTests
     {
+        #region Between
+
+        [Test]
+        public void Between_Input_Date_And_Range_Dates_Are_Same_Test()
+        {
+            var result = new DateTime(2018, 01, 01).Between(new DateTime(2018, 01, 01), new DateTime(2018, 01, 01));
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void Between_Input_Date_And_Range_Dates_Are_Different_Test()
+        {
+            var result = new DateTime(2018, 01, 01).Between(new DateTime(2017, 01, 01), new DateTime(2018, 01, 01));
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void Between_Input_Date_And_Range_Dates_Are_Outside_Boundary_Test()
+        {
+            var result = new DateTime(2018, 01, 01).Between(new DateTime(2017, 01, 01), new DateTime(2017, 01, 01));
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void Between_Input_Date_And_Range_Dates_Are_Min_And_Max_Limits()
+        {
+            var result = new DateTime(2018, 01, 01).Between(DateTime.MinValue, DateTime.MaxValue);
+            Assert.AreEqual(true, result);
+        }
+
+        #endregion
+
         #region GetFirstDayOfWeek
 
         [Test]

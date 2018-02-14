@@ -9,6 +9,22 @@ namespace CSharp.ExtensionMethods
     /// </summary>
     public static class DateExtensions
     {
+        #region Between
+
+        /// <summary>
+        /// Function to check if the given date is between a date range i.e. start date and end date
+        /// </summary>
+        /// <param name="inputDate">Input date to check between a range</param>
+        /// <param name="rangeStart">Range start date</param>
+        /// <param name="rangeEnd">Range end date</param>
+        /// <returns></returns>
+        public static bool Between(this DateTime inputDate, DateTime rangeStart, DateTime rangeEnd)
+        {
+            return inputDate.Ticks >= rangeStart.Ticks && inputDate.Ticks <= rangeEnd.Ticks;
+        }
+
+        #endregion
+
         #region GetFirstDayOfWeek
 
         /// <summary>
