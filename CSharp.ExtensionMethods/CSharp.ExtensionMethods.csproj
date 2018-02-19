@@ -43,6 +43,7 @@
     <Compile Include="DateExtensions.cs" />
     <Compile Include="DoubleExtensions.cs" />
     <Compile Include="EnumExtensions.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="IntExtensions.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

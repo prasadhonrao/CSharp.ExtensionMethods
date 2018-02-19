@@ -55,6 +55,7 @@
     <Compile Include="DateExtensionsTests.cs" />
     <Compile Include="EnumExtensionsTests.cs" />
     <Compile Include="DoubleExtensionsTests.cs" />
+    <Compile Include="IEnumerableExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
